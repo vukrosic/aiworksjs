@@ -1,4 +1,4 @@
-# aiworksjs README
+# OpenAI Codex README
 
 OpenAI Codex Playground in your editor.
 

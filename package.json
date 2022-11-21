@@ -2,6 +2,10 @@
   "name": "openaicodexplayground",
   "displayName": "OpenAI Codex",
   "description": "OpenAI Playground functionality in your editor.",
+  "publisher": "VukRosic",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vukrosic/aiworksjs"},
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.73.0"
