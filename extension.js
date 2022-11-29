@@ -14,6 +14,7 @@ function activate(context) {
 	//console.log('Congratulations, your extension "aiworksjs" is now active!');
 
 	let max_tokens = 256;
+	let model = "code-davinci-002"
 
 	let attributes = vscode.commands.registerCommand('aiworksjs.setAttributes', async function () {
 		vscode.window.showInputBox({ prompt: "OpenAI Codex: Enter max length!" }).then(max_tokens1 => {
@@ -22,6 +23,13 @@ function activate(context) {
 		});
 	});
 
+	let attributes = vscode.commands.registerCommand('aiworksjs.setAttributes', async function () {
+	let model = "code-davinci-002"
+		vscode.window.showInputBox({ prompt: "OpenAI Codex: Enter model you wish to use!" }).then(model2 => {
+			console.log(model2);
+			model = model2;
+		});
+	});
 	let apiKey = vscode.commands.registerCommand('aiworksjs.setAPIKey', async function () {
 		vscode.window.showInputBox({ prompt: "OpenAI Codex: Enter API Key!" }).then(API_KEY1 => {
 			console.log(API_KEY1);
@@ -87,7 +95,7 @@ async function callOpenAI(prompt1, max_tokens1) {
 		// put this into try ca
 		try {
 		response = await openai.createCompletion({
-			model: "code-davinci-002",
+			model: "text-davinci-003",
 			prompt: prompt1,
 			temperature: 0,
 			max_tokens: max_tokens1,
