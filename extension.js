@@ -25,9 +25,9 @@ function activate(context) {
 
 	let attributes = vscode.commands.registerCommand('aiworksjs.setAttributes', async function () {
 	let model = "code-davinci-002"
-		vscode.window.showInputBox({ prompt: "OpenAI Codex: Enter model you wish to use!" }).then(model2 => {
-			console.log(model2);
-			model = model2;
+		vscode.window.showInputBox({ prompt: "OpenAI Codex: Enter model you wish to use!" }).then(model1 => {
+			console.log(model1);
+			model = model1;
 		});
 	});
 	let apiKey = vscode.commands.registerCommand('aiworksjs.setAPIKey', async function () {
@@ -84,7 +84,7 @@ function activate(context) {
 function deactivate() {}
 
 
-async function callOpenAI(prompt1, max_tokens1) {
+async function callOpenAI(model1, prompt1, max_tokens1) {
 	// let change = vscode.workspace.onDidChangeTextDocument(async event => {
 
 		const configuration = new Configuration({
@@ -95,7 +95,7 @@ async function callOpenAI(prompt1, max_tokens1) {
 		// put this into try ca
 		try {
 		response = await openai.createCompletion({
-			model: "text-davinci-003",
+			model: model1,
 			prompt: prompt1,
 			temperature: 0,
 			max_tokens: max_tokens1,
