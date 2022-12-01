@@ -4,7 +4,7 @@ const { Configuration, OpenAIApi } = require("openai");
 
 let API_KEY = "YOUR_API_KEY";
 let model1 = "code-davinci-002";
-// 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
+
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -44,9 +44,6 @@ function activate(context) {
 			quickPick.onDidChangeSelection(selection => quickPick.hide());
 		});
 		console.log(model1);
-
-		quickPick.onDidHide(() => quickPick.dispose());
-		// on selected model, set model1 to the selected model
 	});
 	
 	// this model quick pick will activate when the user presses ctrl+shift+p and types "OpenAI Codex: Set Model"
