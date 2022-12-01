@@ -3,7 +3,8 @@ const { Configuration, OpenAIApi } = require("openai");
 
 
 let API_KEY = "YOUR_API_KEY";
-
+let model1 = "code-davinci-002";
+// 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
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -29,6 +30,27 @@ function activate(context) {
 		});
 	});
 
+	let model = vscode.commands.registerCommand('aiworksjs.setModel', async function () {
+		const options = ["code-davinci-002", "code-cushman-001", "text-davinci-003", "text-curie-001", "text-babbage-001", "text-ada-001"];
+		const quickPick = vscode.window.createQuickPick();
+		quickPick.items = Object.values(options).map(label => ({ label }));
+		// set model1 to the selected model
+		model1 = await new Promise(resolve => {
+			quickPick.onDidChangeSelection(selection => resolve(selection[0].label));
+			quickPick.onDidHide(() => resolve(undefined));
+			// close
+			quickPick.show();
+			// on selected close the quick pick
+			quickPick.onDidChangeSelection(selection => quickPick.hide());
+		});
+		console.log(model1);
+
+		quickPick.onDidHide(() => quickPick.dispose());
+		// on selected model, set model1 to the selected model
+	});
+	
+	// this model quick pick will activate when the user presses ctrl+shift+p and types "OpenAI Codex: Set Model"
+
 
 	let disposable = vscode.commands.registerCommand('aiworksjs.wtffff', function () {
 		// The code you place here will be executed every time your command is executed
@@ -40,21 +62,8 @@ function activate(context) {
 		const selection = editor.selection;
 		const text = editor.document.getText(selection);
 
-/*
-		var new_str = "";
-		for (var i = 0; i < text.length; i++) {
-			if (text[i] == "\\") {
-				new_str += "\\\\";
-			} else if (text[i] == "\"") {
-				new_str += "\\\"";
-			} else if (text[i] == "\'") {
-				new_str += "\\\'";
-			} else if (text[i] == "\n") {
-				new_str += "\\n";
-			} else {
-				new_str += text[i];
-			}
-	}*/
+		
+		
 
 	// convert text to string
 	callOpenAI(text.toString(), max_tokens);
@@ -69,6 +78,7 @@ function activate(context) {
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(attributes);
 	context.subscriptions.push(apiKey);
+	context.subscriptions.push(model);
 	//context.subscriptions.push(change);
 
 }
@@ -87,7 +97,7 @@ async function callOpenAI(prompt1, max_tokens1) {
 		// put this into try ca
 		try {
 		response = await openai.createCompletion({
-			model: "code-davinci-002",
+			model: model1,
 			prompt: prompt1,
 			temperature: 0,
 			max_tokens: max_tokens1,

@@ -22,14 +22,17 @@ Result:
 
 ![CallAPI](READMEimages/Completion.jpg)
 
-You can change the max length:
+You can change the max length: OpenAI Codex: Set Max Length
 
 ![CallAPI](READMEimages/SetMaxLength.jpg)
+
+You an change the model: OpenAI Codex: Set Model
+
+![CallAPI](READMEimages/SetModel.jpg)
 
 
 
 ## Feedback
-This is the first prototype. \
-Please send feedback at vukrosic1@gmail.com
+I am trying to talk to users on what problems they face. Please send feedback at Reddit, Discord or vukrosic1@gmail.com
 
 **Enjoy!**

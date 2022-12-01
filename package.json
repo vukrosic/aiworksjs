@@ -16,7 +16,8 @@
   "activationEvents": [
     "onCommand:aiworksjs.wtffff",
     "onCommand:aiworksjs.setAttributes",
-    "onCommand:aiworksjs.setAPIKey"
+    "onCommand:aiworksjs.setAPIKey",
+    "onCommand:aiworksjs.setModel"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -32,6 +33,10 @@
       {
         "command": "aiworksjs.setAPIKey",
         "title": "OpenAI Codex: Set API Key"
+      },
+      {
+        "command": "aiworksjs.setModel",
+        "title": "OpenAI Codex: Set Model"
       }
     ]
   },
