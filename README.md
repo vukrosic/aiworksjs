@@ -2,9 +2,16 @@
 
 OpenAI Codex Playground in your editor.
 
-## Features
+# Update Notes
 
-No need to copy your code into the playground, it works in your editor now.
+API Key will now be saved.\
+Added commands:
+- OpenAI Codex: Set Temperature
+
+
+# Features
+
+There's no need to copy paste your code to the playground anymore; it now works directly in your editor.
 
 Step 1:
 
@@ -30,9 +37,14 @@ You an change the model: OpenAI Codex: Set Model
 
 ![CallAPI](READMEimages/SetModel.jpg)
 
+You can change the temperature: OpenAI Codex: Set Temperature
+
+![CallAPI](READMEimages/SetTemperature.jpg)
 
 
 ## Feedback
-I am trying to talk to users on what problems they face. Please send feedback at Reddit, Discord or vukrosic1@gmail.com
 
-**Enjoy!**
+![CallAPI](READMEimages/SubmitExtensionFeedback.jpg)
+
+I would greatly appreciate your feedback as it will help us develop better features. Your input is invaluable and highly encouraged.
+My email is vukrosic1@gmail.com
